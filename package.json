@@ -1,0 +1,40 @@
+{
+  "name": "strangestarter",
+  "version": "0.0.0",
+  "workspaces": [
+    "packages/*",
+    "website"
+  ],
+  "scripts": {
+    "build": "pnpm --dir website build",
+    "dev": "pnpm --dir website dev",
+    "export": "pnpm --dir website export",
+    "lint": "turbo run lint",
+    "postinstall": "pnpm --dir website tokens",
+    "prepare": "husky install",
+    "start": "pnpm --dir website start",
+    "website": "pnpm --dir website"
+  },
+  "devDependencies": {
+    "@chakra-ui/cli": "^2",
+    "@strangelovelabs/style-guide": "latest",
+    "eslint": "^8",
+    "husky": "^8",
+    "lint-staged": "^13",
+    "prettier": "^2",
+    "turbo": "^1"
+  },
+  "pnpm": {
+    "overrides": {
+      "type-fest": "^2"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,md}": [
+      "prettier --write"
+    ]
+  },
+  "prettier": "@strangelovelabs/style-guide/prettier",
+  "private": true,
+  "license": "MIT"
+}
